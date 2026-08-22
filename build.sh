@@ -29,7 +29,7 @@ export LD_LIBRARY_PATH="$CLANG_DIR/lib:$LD_LIBRARY_PATH"
 if ! [ -d "${CLANG_DIR}" ]; then
 echo "Clang not found! Cloning to ${CLANG_DIR}..."
 mkdir -p "${CLANG_DIR}"
-wget -q https://github.com/Shirotachii/google-clang-mirror/releases/download/clang-r547379-aosp/clang.tar.gz -O clang.tar.gz
+wget -q https://github.com/Shirotachii/google-clang-mirror/releases/download/clang-r498229b-aosp/clang.tar.gz -O clang.tar.gz
 if [ $? -ne 0 ]; then
 echo "Download failed! Aborting..."
 exit 1
