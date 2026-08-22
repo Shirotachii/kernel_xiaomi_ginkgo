@@ -21,14 +21,14 @@ GCC_32_DIR="${TC_DIR}/arm-linux-androideabi-4.9"
 AK3_DIR="${LOCAL_DIR}/AnyKernel3"
 DEFCONFIG="vendor/ginkgo-perf_defconfig"
 
-export KBUILD_BUILD_USER="Frenzy"
-export KBUILD_BUILD_HOST="KinesisPrjkt"
+export KBUILD_BUILD_USER="SAO"
+export KBUILD_BUILD_HOST="Sword-Art-Online"
 export PATH="$CLANG_DIR/bin:$GCC_64_DIR/bin:$GCC_32_DIR/bin:$PATH"
 export LD_LIBRARY_PATH="$CLANG_DIR/lib:$LD_LIBRARY_PATH"
 
 if ! [ -d "${CLANG_DIR}" ]; then
 echo "Clang not found! Cloning to ${CLANG_DIR}..."
-if ! git clone --depth=1 -b Clang-15.0 https://gitlab.com/kutemeikito/rastamod69-clang.git ${CLANG_DIR}; then
+if ! git clone --depth=1 -b clang-21.0 https://gitlab.com/kutemeikito/rastamod69-clang.git ${CLANG_DIR}; then
 echo "Cloning failed! Aborting..."
 exit 1
 fi
