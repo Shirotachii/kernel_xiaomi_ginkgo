@@ -19,21 +19,22 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            build-essential bc bison flex perl \
-            libssl-dev libelf-dev libfl-dev libncursesw5-dev \
-            aria2 curl wget git ccache python3 python3-pip \
-            zip unzip tar gzip bzip2 lz4 zstd clang llvm \
-            device-tree-compiler libarchive-tools ca-certificates
+         sudo apt-get update
+         sudo apt-get install -y \
+         build-essential make gcc g++ bc bison flex perl \
+         libssl-dev libelf-dev libfl-dev libncurses-dev \
+         curl wget git ccache python3 \
+         zip unzip tar gzip bzip2 lz4 zstd \
+         clang llvm lld device-tree-compiler
 
       - name: Build Kernel with KSU
-        run: bash build.sh --ksu
+        run: bash build.sh -k
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v7
         with:
-          name: kernel-build-ksu
+          name: kernel-build-ksun
           path: Kirito-AOSP-Ginkgo-KSUNext*.zip
           if-no-files-found: error
           retention-days: 30
+          compression-level: 0
