@@ -28,8 +28,6 @@ jobs:
             device-tree-compiler libarchive-tools ca-certificates
 
       - name: Upload AnyKernel3
-      if: env.CHECK_FILE_IS_OK == 'true'
-      uses: actions/upload-artifact@v7
-      with:
-        name: ${{ env.ANDROID_TAG }}
-        path: kernel_workspace/AnyKernel3/*
+        uses: actions/upload-artifact@v7
+        with:
+         path: kernel_workspace/AnyKernel3/*
