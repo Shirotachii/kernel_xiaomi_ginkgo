@@ -13,7 +13,7 @@
 SECONDS=0 # builtin bash timer
 LOCAL_DIR="$(pwd)/.."
 ZIPNAME="Kirito-AOSP-Ginkgo-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
-ZIPNAME_KSU="Kinesis-AOSP-Ginkgo-KSUNext-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
+ZIPNAME_KSU="Kirito-AOSP-Ginkgo-KSUNext-$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M").zip"
 TC_DIR="${LOCAL_DIR}/toolchain"
 CLANG_DIR="${TC_DIR}/clang"
 GCC_64_DIR="${TC_DIR}/aarch64-linux-android-4.9"
