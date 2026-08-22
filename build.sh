@@ -28,7 +28,7 @@ export LD_LIBRARY_PATH="$CLANG_DIR/lib:$LD_LIBRARY_PATH"
 
 if ! [ -d "${CLANG_DIR}" ]; then
 echo "Clang not found! Cloning to ${CLANG_DIR}..."
-if ! git clone --depth=1 -b clang-21.0 https://gitlab.com/kutemeikito/rastamod69-clang.git ${CLANG_DIR}; then
+if ! git clone --depth=1 -b clang-20.0 https://gitlab.com/kutemeikito/rastamod69-clang.git ${CLANG_DIR}; then
 echo "Cloning failed! Aborting..."
 exit 1
 fi
