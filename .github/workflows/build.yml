@@ -32,15 +32,9 @@ jobs:
           chmod +x build.sh
           ./build.sh --ksu
 
-      - name: Find ZIP
-        id: find_zip
-        run: |
-          ZIP_FILE=$(find . -maxdepth 1 -name "*.zip" | head -n 1)
-          echo "ZIP_FILE=$ZIP_FILE" >> $GITHUB_ENV
-          echo "Found ZIP: $ZIP_FILE"
-
-      - name: Upload Kernel ZIP
+      - name: Upload AnyKernel3
+        if: env.CHECK_FILE_IS_OK == 'true'
         uses: actions/upload-artifact@v7
         with:
-          name: kernel-artifact
-          path: ${{ env.ZIP_FILE }}
+          name: ${{ env.ZIPNAME_KSU }}
+          path: kernel_workspace/AnyKernel3/*
