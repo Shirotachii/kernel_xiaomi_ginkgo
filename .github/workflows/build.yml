@@ -27,12 +27,13 @@ jobs:
             zip unzip tar gzip bzip2 lz4 zstd clang llvm \
             device-tree-compiler libarchive-tools ca-certificates
 
-      - name: Build Kernel
-        run: |
-          chmod +x build.sh
-          ./build.sh --ksu
+      - name: Build Kernel with KSU
+        run: bash build.sh --ksu
 
-      - name: Upload AnyKernel3
+      - name: Upload Artifact
         uses: actions/upload-artifact@v7
         with:
-          path: kernel_workspace/AnyKernel3/*
+          name: kernel-build-ksu
+          path: Kirito-AOSP-Ginkgo-KSUNext*.zip
+          if-no-files-found: error
+          retention-days: 30
