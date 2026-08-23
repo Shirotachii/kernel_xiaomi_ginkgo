@@ -26,14 +26,22 @@ jobs:
          curl wget git ccache python3 \
          zip unzip tar gzip bzip2 lz4 zstd \
          clang llvm lld device-tree-compiler
-
-      - name: Build Kernel with KSU
-        run: bash build.sh --ksu
-
-      - name: Upload Artifact
+         
+      - name: Build Kernel
+        run: |
+          bash build.sh --ksu
+          
+      - name: Find ZIP
+        id: find_zip
+        run: |
+          ZIP_FILE=$(find . -maxdepth 1 -name "*.zip" | head -n 1)
+          echo "ZIP_FILE=$ZIP_FILE" >> $GITHUB_ENV
+          echo "Found ZIP: $ZIP_FILE"
+          
+      - name: Upload Kernel ZIP
         uses: actions/upload-artifact@v7
         with:
-          name: kernel-build-ksu
-          path: Kirito-AOSP-Ginkgo-KSUNext*.zip
+          name: kernel-artifact
+          path: ${{ env.ZIP_FILE }}
           if-no-files-found: error
           archive: false
