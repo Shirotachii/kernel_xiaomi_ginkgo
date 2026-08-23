@@ -28,13 +28,11 @@ jobs:
          clang llvm lld device-tree-compiler
 
       - name: Build Kernel with KSU
-        run: bash build.sh -k
+        run: bash build.sh --ksu
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v7
         with:
-          name: kernel-build-ksun
+          name: kernel-build-ksu
           path: Kirito-AOSP-Ginkgo-KSUNext*.zip
           if-no-files-found: error
-          retention-days: 30
-          compression-level: 0
