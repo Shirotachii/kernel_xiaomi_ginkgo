@@ -36,3 +36,4 @@ jobs:
           name: kernel-build-ksu
           path: Kirito-AOSP-Ginkgo-KSUNext*.zip
           if-no-files-found: error
+          archive: false
