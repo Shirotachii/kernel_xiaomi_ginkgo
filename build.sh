@@ -28,17 +28,12 @@ export LD_LIBRARY_PATH="$CLANG_DIR/lib:$LD_LIBRARY_PATH"
 
 if ! [ -d "${CLANG_DIR}" ]; then
 echo "Clang not found! Cloning to ${CLANG_DIR}..."
-mkdir -p "${CLANG_DIR}"
-wget -q https://github.com/Shirotachii/google-clang-mirror/releases/download/clang-r547379-aosp/clang.tar.gz -O clang.tar.gz
-if [ $? -ne 0 ]; then
-echo "Download failed! Aborting..."
+if ! git clone --depth=1 https://github.com/kdrag0n/proton-clang.git ${CLANG_DIR}; then
+echo "Cloning failed! Aborting..."
 exit 1
 fi
-echo "Extracting clang to ${CLANG_DIR}..."
-tar -xf clang.tar.gz -C "${CLANG_DIR}"
-rm -f clang.tar.gz
 fi
-
+ 
 if ! [ -d "${GCC_64_DIR}" ]; then
 echo "gcc not found! Cloning to ${GCC_64_DIR}..."
 if ! git clone --depth=1 -b lineage-19.1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git ${GCC_64_DIR}; then
